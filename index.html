@@ -1,27 +1,235 @@
-<h1>⚡ Zero Inertia Technology</h1>
-<p style="text-align: center; font-size: 1.2rem;">The science behind the book <strong>"36.36: A Quantum Scaling Law"</strong></p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zero Inertia Technology | The book "36.36: A Quantum Scaling Law"</title>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script" async></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: linear-gradient(135deg, #0b1120 0%, #19233c 100%);
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, sans-serif;
+            color: #e2e8f0;
+            line-height: 1.5;
+            padding: 2rem;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(12px);
+            border-radius: 2rem;
+            padding: 2rem;
+            border: 1px solid rgba(96, 165, 250, 0.2);
+            box-shadow: 0 25px 40px -12px rgba(0,0,0,0.4);
+        }
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            text-align: center;
+            background: linear-gradient(135deg, #f0f9ff, #60a5fa, #a855f7);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 0.25rem;
+        }
+        .subhead {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #94a3b8;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #334155;
+            display: inline-block;
+            width: auto;
+            margin-left: auto;
+            margin-right: auto;
+            padding-bottom: 0.5rem;
+        }
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin: 1.5rem 0 0.75rem 0;
+            display: inline-block;
+            border-left: 4px solid #60a5fa;
+            padding-left: 1rem;
+        }
+        .formula-card {
+            background: #0f172a;
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            text-align: center;
+            border: 1px solid #2d3a5e;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+        .formula {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #facc15;
+            background: #020617;
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 2rem;
+            letter-spacing: 0.5px;
+            font-family: 'Courier New', monospace;
+        }
+        .inline-code {
+            background: #1e293b;
+            padding: 0.2rem 0.4rem;
+            border-radius: 0.5rem;
+            font-family: monospace;
+            font-size: 0.9rem;
+            color: #facc15;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 2rem 0;
+            justify-content: center;
+        }
+        .card {
+            background: #0f172a;
+            border-radius: 1.25rem;
+            overflow: hidden;
+            max-width: 480px;
+            flex: 1;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: 1px solid #2d3a5e;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px -12px black;
+        }
+        .card img {
+            width: 100%;
+            display: block;
+            background: #000;
+        }
+        .card .caption {
+            padding: 1rem;
+            background: #020617;
+            font-size: 0.85rem;
+            text-align: center;
+            color: #cbd5e1;
+        }
+        .book-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .topic-card {
+            background: #111827;
+            flex: 1;
+            min-width: 180px;
+            padding: 1rem 1.2rem;
+            border-radius: 1.2rem;
+            border-left: 3px solid #60a5fa;
+            transition: all 0.2s;
+        }
+        .topic-card strong {
+            color: #60a5fa;
+            display: block;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        .button {
+            display: inline-block;
+            background: linear-gradient(95deg, #f59e0b, #ea580c);
+            color: white;
+            font-weight: 700;
+            padding: 12px 32px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            margin: 0.5rem 0;
+            transition: 0.2s;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.3);
+        }
+        .button:hover {
+            transform: scale(1.02);
+            background: linear-gradient(95deg, #fbbf24, #f97316);
+            box-shadow: 0 8px 18px rgba(0,0,0,0.4);
+        }
+        hr {
+            margin: 2rem 0;
+            border: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #60a5fa, transparent);
+        }
+        .footer {
+            text-align: center;
+            font-size: 0.75rem;
+            color: #6c7a91;
+            margin-top: 2rem;
+        }
+        @media (max-width: 700px) {
+            body { padding: 1rem; }
+            .container { padding: 1.25rem; }
+            h1 { font-size: 2rem; }
+            .formula { font-size: 1rem; padding: 0.5rem 1rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>⚡ Zero Inertia Technology</h1>
+    <div style="text-align: center; margin-bottom: 1rem;">
+        <span class="subhead">The science behind the book <strong>"36.36: A Quantum Scaling Law"</strong></span>
+    </div>
 
-<h2>📐 The discovery</h2>
-<p>What if inertia – the resistance of an object to being moved – could be tuned, or even cancelled? The book reveals a precise mathematical condition:</p>
-<div class="formula">\[
-\Xi = \frac{\kappa \cdot GT\_RATIO \cdot A}{m_{\text{sq}}} = 36.3600
-\]</div>
-<p>When this ratio is satisfied, a system can be made to accelerate almost instantly, as if it had no mass. This is not science fiction – it’s a proven engineering principle demonstrated with a virtual flywheel.</p>
+    <h2>📐 The discovery</h2>
+    <p>What if inertia – the resistance of an object to being moved – could be tuned, or even cancelled? The book reveals a precise mathematical condition:</p>
+    <div class="formula-card">
+        <div class="formula">
+            \[
+            \Xi = \frac{\kappa \cdot GT\_RATIO \cdot A}{m_{\text{sq}}} = 36.3600
+            \]
+        </div>
+    </div>
+    <p>When this ratio is satisfied, a system can be made to accelerate almost instantly, as if it had no mass. This is not science fiction – it’s a proven engineering principle demonstrated with a virtual flywheel.</p>
 
-<h2>🎬 See it in action</h2>
-<!-- keep your two GIFs and their captions as they are -->
+    <h2>🎬 See it in action</h2>
+    <div class="gallery">
+        <div class="card">
+            <img src="gifs/Target_Xi_36.36_animated.gif" alt="Optimal tuning: Ξ = 36.36">
+            <div class="caption">
+                <strong>🎯 Optimal Tuning (Ξ = 36.36)</strong><br>
+                <span style="color:#3b82f6">Blue (compensated)</span> accelerates <strong>~46× faster</strong> than red – zero‑inertia response.
+            </div>
+        </div>
+        <div class="card">
+            <img src="gifs/Higher_J_comp_animated.gif" alt="Off‑tuned: higher J_comp">
+            <div class="caption">
+                <strong>⚠️ Off‑Tuned (Higher J_comp)</strong><br>
+                Speed difference drops to ~4.6× – shows sensitivity of the tuning.
+            </div>
+        </div>
+    </div>
 
-<h2>📖 What the book covers</h2>
-<ul>
-    <li>The full derivation of the scaling law, from numerical simulation to the critical number 36.36</li>
-    <li>How geometry, mass, and drive interact to cancel inertia</li>
-    <li>Practical steps to build your own zero‑inertia system</li>
-    <li>Speculative implications for physics – wormholes, scalar fields, and the nature of inertia</li>
-</ul>
+    <h2>📖 What the book covers</h2>
+    <div class="book-grid">
+        <div class="topic-card"><strong>📐 Full derivation</strong> From numerical simulation to the critical number 36.36</div>
+        <div class="topic-card"><strong>⚙️ How it works</strong> How geometry, mass, and drive interact to cancel inertia</div>
+        <div class="topic-card"><strong>🛠️ Practical steps</strong> Build your own zero‑inertia system (linear or rotating)</div>
+        <div class="topic-card"><strong>🌌 Speculative physics</strong> Wormholes, scalar fields, and the nature of inertia</div>
+    </div>
 
-<h2>🔗 Get the paperback</h2>
-<p style="text-align: center;">
-    <a href="https://a.co/d/07v6auSs" class="amazon-button">📖 Buy "36.36: A Quantum Scaling Law" on Amazon</a>
-</p>
-<hr>
-<p>Visit this page to see the live demonstration. For the full story, physics, and experiments, buy the book.</p>
+    <h2>🔗 Get the paperback</h2>
+    <div style="text-align: center; margin: 1.5rem 0;">
+        <a href="https://a.co/d/07v6auSs" class="button" target="_blank">📖 Buy "36.36: A Quantum Scaling Law" on Amazon</a>
+    </div>
+
+    <hr>
+    <div style="text-align: center; font-size: 0.9rem; color: #9ca3af;">
+        <p>Visit this page to see the live demonstration. For the full story, physics, and experiments, buy the book.</p>
+    </div>
+    <div class="footer">
+        Zero Inertia Technology – simulation and animations.<br>
+        Patent pending. All rights reserved.
+    </div>
+</div>
+</body>
+</html>
